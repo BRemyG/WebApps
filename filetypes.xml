@@ -11,6 +11,7 @@
       <mapping ext="tpb" type="DBN-PSQL" />
       <mapping ext="prc" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
+      <mapping pattern="joySameServerFile" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
