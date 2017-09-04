@@ -14,6 +14,7 @@
       <mapping pattern="joySameServerFile" type="PLAIN_TEXT" />
       <mapping pattern="1_steps_to_create_new_Angular_4_project" type="PLAIN_TEXT" />
       <mapping pattern="1_AngularJS_setup_steps" type="PLAIN_TEXT" />
+      <mapping pattern="1_setup_steps" type="PLAIN_TEXT" />
       <mapping pattern="create_new_Angular_4_project" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
