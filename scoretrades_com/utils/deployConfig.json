@@ -1,0 +1,33 @@
+{
+  "Server":{
+    "protocol": "http://",
+    "host": "192.169.181.27:",
+    "port": 811,
+    "ip": "192.169.181.27",
+    "staticPath": "../",
+    "useTerminal" : "/scoretrade/",
+    "signUp" : "/signUp",
+    "login": "/login",
+    "index": "/index",
+    "myPage" : "/myPage",
+    "dashBoard" : "/dashBoard",
+    "forwardToIpPort" : "192.169.181.27:80"
+  },
+  "index":{
+    "url": "http://localhost:63342/untitled/WebSiteApplications/scoretrades_com/index.html",
+    "path": "index.html"
+  },
+  "myPage": {
+    "url" : "http://localhost:63342/untitled/WebSiteApplications/scoretrades_com/htmlTemplates/userSpaceWithChat.html",
+    "path": "htmlTemplates/myPage.html"
+  },
+  "dashBoard":{
+    "path" : "htmlTemplates/big3Buttons.html"
+  },
+  "mysqlConnection":{
+    "host":"localhost",
+    "user": "scoretradesUser",
+    "password": "user1234!!",
+    "database": "scoretrades"
+  }
+}
