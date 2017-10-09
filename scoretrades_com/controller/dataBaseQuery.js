@@ -7,7 +7,7 @@ var mysql = require("mysql"),
     index = 'C:\\Users\\RemyValery\\WebstormProjects\\untitled\\WebSiteApplications\\scoretrades__com\\index.html',
     userSpace = 'C:\\Users\\RemyValery\\WebstormProjects\\untitled\\WebSiteApplications\\scoretrades__com\\htmlTemplates\\userSpace.html';
 
-var con = mysql.createConnection(config.mysqlConnection);
+var con;
 var date = new Date(),
     dbdate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
     userfname,userlname;
@@ -18,6 +18,33 @@ function uniqueReferenceGenerator(){
     var mathradix = Math.round(Math.random()*10000000);
     return date.toString(16) + mathradix.toString(16);
 }
+
+function handleDisconnect(){
+    con = mysql.createConnection(config.mysqlConnection);
+
+    con.connect(function(err) {
+        if(err) {
+            console.log('error when connecting to db: ', err);
+            setTimeout(handleDisconnect, 2000);
+        }
+    });
+    con.on('error', function(err){
+        console.log('bd error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST'){
+            handleDisconnect();
+        }else {
+            throw err;
+        }
+    });
+}
+
+handleDisconnect();
+
+// solution 2 to handling disconnect, make a query every 10 seconds
+setInterval(function(){
+    con.query('SELECT 1')
+}, 10000);
+
 
 module.exports = {
     signUp: function (fname, lname, email, pswd, img) {

@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqxILJPtLU1A-bjZ9bv-RTwc-mnsiWcBw"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./script/login2.js"></script>
 <!-- Add Google Maps -->
 
 
@@ -29,7 +32,7 @@
 
     /* First image (Logo. Full height) */
     .bgimg-1 {
-        background-image: url('./images/gHome2.jpg');
+        background-image: url('./images/dunk.jpg');
         min-height: 50%;
     }
 
@@ -59,7 +62,6 @@
             background-attachment: scroll;
         }
     }
-    .mySlides {display: none;}
 </style>
 <body>
 
@@ -157,30 +159,60 @@
 </div>
 
 <!-- Carousel -->
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="zbgimg-1 w3-display-container w3-opacity-min   item active">
+                <img src="./images/dunk.jpg" alt="Los Angeles" style="width:100%;">
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+            <div class="zbgimg-2 w3-display-container w3-opacity-min   item">
+                <img src="./images/airDunk.jpg" alt="Chicago" style="width:100%;">
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+            <div class="zbgimg-3 w3-display-container w3-opacity-min   item">
+                <img src="./images/soccer_play.jpg" alt="New York" style="width:100%;">
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
 <!-- end Carousel -->
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+<div class="zbgimg-1 ww3-display-container w3-opacity-min" id="whome">
     <!-- <div class="w3-display-middle" style="white-space:nowrap;">
          <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
      </div>-->
 
-        <div class="w3-content w3-section w3-padding-64" style="max-width:500px; height:400px">
-            <img class="mySlides zw3-animate-top w3-round-large" src="./images/dunk.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-left w3-round-large" src="./images/airDunk.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-bottom w3-round-large" src="./images/soccer_play.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-right w3-round-large" src="./images/baseBall_strike.jpg" style="width:100%">
-
-            <img class="mySlides zw3-animate-top w3-round-large" src="./images/balls_bats_n_racket.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-left w3-round-large" src="./images/hokey.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-bottom w3-round-large" src="./images/maxresdefault_hit.jpg" style="width:100%">
-            <img class="mySlides zw3-animate-right w3-round-large" src="./images/female_soccer.jpg" style="width:100%">
-
-        </div>
     <form class="w3-container w3-card-9 w3-light-grey w3-display-middle w3-round-large">
         <p>
             <input class="w3-input w3-border" type="text" placeholder="Search for..."></p>
     </form>
-    <br>
     <br>
 </div>
 
@@ -188,9 +220,11 @@
 
 <div class="w3-content w3-container w3-padding-64" id="about">
     <h3 class="w3-center">SCORETRADES</h3>
-    <p class="w3-center"><em>Numbers don't 'LIE'... check the score board!</em></p>
-    <p class="w3-center">
-        Place a hold, if you know what that score might be. Dare a double if you mean business.  All in..? its your call.
+    <p class="w3-center"><em>...endorsing value, one grade at a time</em></p>
+    <p>
+        Look it up. Not just location. Go for quality! Without compromise, we expect great products and satisfactory services from our
+        providers and products. SCORETRADES keeps you in the 'know'.Now you can make informed decisions. So, no more excuses.
+
     </p>
 
 </div>
@@ -222,7 +256,6 @@
 
 </footer>
 <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqxILJPtLU1A-bjZ9bv-RTwc-mnsiWcBw"></script>
-<script src="./script/login2.js"></script>
+
 </body>
 </html>
