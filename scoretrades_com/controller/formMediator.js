@@ -8,13 +8,16 @@ var express = require('express'),
     childProcess = require('child_process'),
     port = config.Server.port,
     net = require('net'),
+    grab_npse = require('../../workers/scrapeFromOnePage');
 
     useEP = config.Server.useTerminal, // '/scoretrade/'
     index = useEP + config.index.path, // '/scoretrade/index.html'
     myPage = useEP + config.myPage.path, // '/scoretrade/htmlTemplates/myPage.html'
     dashBoard = useEP + config.dashBoard.path, // '/scoretrade/htmlTemplates/big3Buttons.html'
+    scrap_npse = useEP + config.scrap_npse.path,
     indexEP = config.Server.index, // '/index'
     myPageEP = config.Server.myPage,
+    scrap_npseEP = config.Server.scrap_npse, //  /scrap_npse
     dashBoardEP = config.Server.dashBoard,
     indexUrl = config.Server.protocol
                 + config.Server.host
@@ -87,6 +90,12 @@ app.get(indexEP, urlencodedParser, function (req, res) {
     res.redirect(index)
 });
 
+//"/scrap_npse"
+app.get(scrap_npseEP, urlencodedParser, function (req, res) {
+    // res.redirect(config.index.url)
+    res.redirect(scrap_npse)
+});
+
 //"/myPage"
 app.get(myPageEP, urlencodedParser, function (req, res) {
     res.redirect( myPage )
@@ -129,18 +138,39 @@ proxyServer.on('error', (err) =>{
 });
 proxyServer.listen(addr.from[3], addr.from[2]);
 
-// == Our app port ==
-var server = app.listen(port, ip, function (err) {
-    err ? console.log('something wrong happened', err)
-        : console.log(`formMediator.js: Example app listening on http://${ip}:${port}`)
-})
 
 var UseLessSpecific = "http://localhost:811/scoretrade/index.html";
-childProcess.exec(`start chrome ${indexUrl}`, function(err, stdout, stderr){
-    if(err){
-        console.error(err);
-        return;
+function callChildProcess(){
+
+// == Our app port ==
+    var server = app.listen(port, ip, function (err) {
+        err ? console.log('something wrong happened', err)
+            : console.log(`formMediator.js: Example app listening on http://${ip}:${port}`)
+    });
+    childProcess.exec(`start chrome ${indexUrl}`, function(err, stdout, stderr){
+        if(err){
+            console.error(err);
+            return;
+        }
+        console.log(stdout);
+        //process.exit(0);
+    });
+    
+    //begin workers
+    grab_npse();
+}
+var processCallNumber = 0;
+(function recursiveChildProcessCall(){
+
+    try{
+        processCallNumber++;
+        console.log(`Starting Server session call number ${processCallNumber}`);
+        callChildProcess()
+    } catch (err){
+        console.log(`call number ${processCallNumber} terminated`);
+        console.log(err);
+        //recursiveChildProcessCall()
     }
-    console.log(stdout);
-    //process.exit(0);
-});
+
+})();
+
