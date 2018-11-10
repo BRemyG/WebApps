@@ -4,4 +4,7 @@
     <enable-developer-mode value="false" />
     <show-plugin-conflict-dialog value="true" />
   </component>
+  <component name="NodeJsLocalInterpreters">
+    <local-interpreter path="C:/Program Files/nodejs/node.exe" />
+  </component>
 </application>
