@@ -1,9 +1,0 @@
-{
-  "webCrawler": {
-    "crawlingList_A": ["http://www.google.com", "http://www.cnn.com", "http://www.google.com", "http://usatoday.com"]
-  },
-  "ESPN":{
-    "scrapLocation": "../htmlTemplates/scrap_npse.html",
-    "urlList": ["http://www.espn.com"]
-  }
-}
